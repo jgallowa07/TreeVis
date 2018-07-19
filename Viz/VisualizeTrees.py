@@ -7,16 +7,9 @@ trees = treeSequence.trees()
 tableCollection = treeSequence.dump_tables()
 nodes = tableCollection.nodes
 numTrees = treeSequence.num_trees
-print(numTrees)
-
-RowsInImage = 1000
-ColumnsInImage = 1000
-
-data = np.zeros((RowsInImage,ColumnsInImage,3), dtype=np.uint8)
-
+samples = treeSequence.samples()
 length = treeSequence.sequence_length
-proportions = []
-
+print(numTrees)
 '''
 chromPos = 0
 for t in trees:
@@ -29,6 +22,12 @@ for t in trees:
 	print(colInterval)
 
 '''
+
+RowsInImage = 1000
+ColumnsInImage = 1000
+
+data = np.zeros((RowsInImage,ColumnsInImage,3), dtype=np.uint8)
+
 EdgeTable = tableCollection.edges
 NodeTable = tableCollection.nodes
 
@@ -78,7 +77,8 @@ for ee in EdgeTable:
 
 
 img = Image.fromarray(data)
-img.show()
+img.save('../Images/effectRegion.png')
+#img.show()
 	 
 	
 			
