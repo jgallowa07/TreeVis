@@ -1,0 +1,18 @@
+initialize() {
+	initializeTreeSeq();
+	initializeMutationRate(0);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 1e8-1);
+	
+	RecombVector = c(0,1e-8);
+	LociVector = c(50000000,99999999);
+	
+	initializeRecombinationRate(RecombVector,LociVector);
+}
+1 {
+	sim.addSubpop("p1", 500);
+}
+5000 late() {
+	sim.treeSeqOutput("/Users/jaredgalloway/Documents/TreeVis/Sims/Trees/RvNR.trees");
+}

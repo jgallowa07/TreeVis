@@ -1,0 +1,24 @@
+initialize() {
+	initializeTreeSeq();
+	initializeMutationRate(0);
+	initializeMutationType("m1", 0.5, "f", 0.0);
+	initializeGenomicElementType("g1", m1, 1.0);
+	initializeGenomicElement(g1, 0, 1e8-1);
+
+	RecombVector = c(1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08, 1e-08, 0, 1e-08);	
+	LociVector = c(4499999, 5499999, 9999999, 14499999, 15499999, 19999999, 24499999, 25499999, 29999999, 34499999, 35499999, 39999999, 44499999, 45499999, 49999999, 54499999, 55499999, 59999999, 64499999, 65499999, 69999999, 74499999, 75499999, 79999999, 84499999, 85499999, 89999999, 94499999, 95499999, 99999999);
+
+	catn(size(RecombVector));
+	catn(size(LociVector));
+
+	
+	initializeRecombinationRate(RecombVector,LociVector);
+	//initializeRecombinationRate(1e-8);
+}
+1 {
+//	sim.simulationFinished();
+	sim.addSubpop("p1", 500);
+}
+5000 late() {
+	sim.treeSeqOutput("/Users/jaredgalloway/Documents/TreeVis/Sims/Trees/effectRegion.trees");
+}
