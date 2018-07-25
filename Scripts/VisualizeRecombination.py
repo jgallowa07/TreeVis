@@ -23,12 +23,12 @@ def Visualize(Filename):
 	NodeTable = tableCollection.nodes
 
 	minimumTime = min(NodeTable.time)
-	print(minimumTime)
+#	print(minimumTime)
 
 	#Change to retrospective "Time Ago"
 	timeShift = NodeTable.time - minimumTime + 1
 	NodeTable.set_columns(flags=NodeTable.flags,time=timeShift,population=NodeTable.population)
-	print(NodeTable.time)
+#	print(NodeTable.time)
 	ts = tableCollection.tree_sequence()
 
 

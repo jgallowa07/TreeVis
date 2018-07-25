@@ -12,7 +12,7 @@ ImgName = "_VR.png"
 
 Labels = ""
 
-for i in range(2000):
+for i in range(3):
 	
 	RR = np.random.uniform(1e-8,1e-12)
 	RR = round(RR,10)
@@ -20,7 +20,7 @@ for i in range(2000):
 
 	RRstr = "RR="+str(RR)
 
-	subprocess.call(["../slim","-d",RRstr,"../Recipes/variatingRecomb.slim"])
+	subprocess.check_output(["../slim","-d",RRstr,"../Recipes/variatingRecomb.slim"])
 	image = Visualize("../Trees/" + TreeFileName)
 	image.save( "../Images/RecombRegressionData/" + str(i) + ImgName)
 
